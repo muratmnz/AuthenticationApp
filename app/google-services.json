@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "913192167508",
+    "project_id": "authenticationapp-31118",
+    "storage_bucket": "authenticationapp-31118.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:913192167508:android:28fbfc625dd3ff67fde5c1",
+        "android_client_info": {
+          "package_name": "com.muratmnz.loginregisterapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "913192167508-ukcebvjmtk3oh597uvl8ff6phge1r4k2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAx3x_VgH0Qn9-Zr03HXuR95LY_E9PiKTA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "913192167508-ukcebvjmtk3oh597uvl8ff6phge1r4k2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

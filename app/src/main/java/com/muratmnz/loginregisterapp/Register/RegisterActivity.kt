@@ -1,12 +1,14 @@
-package com.muratmnz.loginregisterapp.Login
+package com.muratmnz.loginregisterapp.Register
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import com.muratmnz.loginregisterapp.R
 
-class MainActivity : AppCompatActivity() {
+open class RegisterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_register)
+        //will be filled
     }
 }

@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">LoginRegisterApp</string>
+    <string name="app_name">Login</string>
+    <string name="app_home">Home</string>
+    <string name="app_register">Register</string>
 </resources>
