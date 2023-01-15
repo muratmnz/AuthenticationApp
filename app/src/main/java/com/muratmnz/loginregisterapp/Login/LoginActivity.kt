@@ -50,11 +50,14 @@ class LoginActivity : AppCompatActivity() {
     private fun login(){
         val email = etEmail.text.toString()
         val password = etPassword.text.toString()
+
         //call signInWithEmailAndPassword
+        //using auth object and pass email and password in it.
         auth.signInWithEmailAndPassword(email,password).addOnCompleteListener {
             if (it.isSuccessful){
                 Toast.makeText(this,"Successfully logged in.",Toast.LENGTH_SHORT).show()
                 val intentHome = Intent(this,HomeActivity::class.java)
+                //intentHome.putExtra("email","${email}")
                 startActivity(intentHome)
                 finish()
             }else{
