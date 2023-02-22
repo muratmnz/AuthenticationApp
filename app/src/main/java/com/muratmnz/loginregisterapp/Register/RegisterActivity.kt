@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.inputmethod.EditorInfo
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -19,18 +20,17 @@ open class RegisterActivity : AppCompatActivity() {
     lateinit var etEmail: EditText
     lateinit var etPassword: EditText
     lateinit var etConfPassword: EditText
-    private lateinit var btnSignup : Button
-    private lateinit var btnBackLogin : Button
+    private lateinit var btnSignup: Button
+    private lateinit var btnBackLogin: Button
     //lateinit var textWelcome : TextView
 
-    private lateinit var auth : FirebaseAuth
+    private lateinit var auth: FirebaseAuth
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
-        //View Bindings
         etEmail = findViewById(R.id.regEmail)
         etPassword = findViewById(R.id.regPassword)
         etConfPassword = findViewById(R.id.regConfPassword)
@@ -45,7 +45,7 @@ open class RegisterActivity : AppCompatActivity() {
             signUpUser()
         }
         btnBackLogin.setOnClickListener {
-            val intent = Intent(this,LoginActivity::class.java)
+            val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
 
@@ -56,23 +56,24 @@ open class RegisterActivity : AppCompatActivity() {
         val password = etPassword.text.toString()
         val confirmPassword = etConfPassword.text.toString()
 
-        if (email.isBlank() || password.isBlank() || confirmPassword.isBlank()){
-            Toast.makeText(this,"Email and password must be filled.",Toast.LENGTH_SHORT).show()
+        if (email.isBlank() || password.isBlank() || confirmPassword.isBlank()) {
+            Toast.makeText(this, "Email and password must be filled.", Toast.LENGTH_SHORT).show()
             return
         }
-        if (password != confirmPassword){
-            Toast.makeText(this,"Password and Confirm password don't match.",Toast.LENGTH_SHORT).show()
+        if (password != confirmPassword) {
+            Toast.makeText(this, "Password and Confirm password don't match.", Toast.LENGTH_SHORT)
+                .show()
             return
         }
-        auth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(this) {
+        auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this) {
             if (it.isSuccessful) {
                 val intentHome = Intent(this, HomeActivity::class.java)
                 //textWelcome.text = " ${email!!}"
-                Toast.makeText(this,"Successfully signed up",Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Successfully signed up", Toast.LENGTH_SHORT).show()
                 startActivity(intentHome)
                 finish()
-            }else{
-                Toast.makeText(this,"Signed up failed.",Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, "Signed up failed.", Toast.LENGTH_SHORT).show()
             }
         }
 

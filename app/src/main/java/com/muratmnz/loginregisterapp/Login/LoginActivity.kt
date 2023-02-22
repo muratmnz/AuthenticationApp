@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.inputmethod.EditorInfo
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -27,7 +28,6 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        //View Binding
         redirectRegister = findViewById(R.id.btnRegister)
         btnLogin = findViewById(R.id.btnLogin)
         etEmail = findViewById(R.id.email)
@@ -47,7 +47,7 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    private fun login(){
+    private fun login() {
         val email = etEmail.text.toString()
         val password = etPassword.text.toString()
 
@@ -55,19 +55,19 @@ class LoginActivity : AppCompatActivity() {
         //using auth object and pass email and password in it.
 
         try {
-            auth.signInWithEmailAndPassword(email,password).addOnCompleteListener {
-                if (it.isSuccessful){
-                    Toast.makeText(this,"Successfully logged in.",Toast.LENGTH_SHORT).show()
-                    val intentHome = Intent(this,HomeActivity::class.java)
+            auth.signInWithEmailAndPassword(email, password).addOnCompleteListener {
+                if (it.isSuccessful) {
+                    Toast.makeText(this, "Successfully logged in.", Toast.LENGTH_SHORT).show()
+                    val intentHome = Intent(this, HomeActivity::class.java)
                     //moving item to other activity with intent
-                    intentHome.putExtra("email",email)
+                    intentHome.putExtra("email", email)
                     startActivity(intentHome)
                     finish()
-                }else{
-                    Toast.makeText(this,"Login failed",Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(this, "Login failed", Toast.LENGTH_SHORT).show()
                 }
             }
-        }catch (e: Exception){
+        } catch (e: Exception) {
             println(e)
         }
 
